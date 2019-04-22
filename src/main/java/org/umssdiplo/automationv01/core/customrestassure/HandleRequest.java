@@ -17,7 +17,7 @@ import static io.restassured.RestAssured.given;
 public class HandleRequest {
 
     private static RequestSpecification REQUEST = PostmanEcho.getInstance().getRequestSpecification(); // .getRequestSpecification();
-
+    private static RequestSpecification REQUEST_POST = PostmanPost.getInstance().getRequestSpecification(); // .getRequestSpecification();
     /**
      * Build the Get method request
      *
@@ -48,7 +48,7 @@ public class HandleRequest {
 
     public static Response post(String endpoint) {
         return given()
-                .spec(REQUEST)
+                .spec(REQUEST_POST)
                 .contentType(ContentType.JSON)
                 .when()
                 .post(endpoint);
